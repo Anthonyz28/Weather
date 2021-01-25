@@ -3,73 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Weather</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
 </head>
 <body>
     <header class="navbar-dark bg-dark">
-        <div class="container-fluild ">
-            <h1 class="text-light text-center"> Weather Dashboard</h1>
-        </div>
+        <h1 class="text-light text-center">Weather Dashboard</h1>
     </header>
 
-    <div class="container">
-        <div class="row">
-          <div class="col-sm-4 bg-light ">
-            <h5>Search for a City:</h5>
-            <div class="input-group flex-nowrap">
-                <input name="cityInput" id="city-name" type="text" autofocus="true" class="form-input" placeholder="City Name" />
-                    <button id="search-btn" type="submit"><i></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                      </svg></button>
-                
-            </div>
-            <br>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 bg-light">
+                    <form id="search-form" class="search-bar">
+                        <label class="form-label">Search for a City:</label>
+                        <input name="city-name" id="city-name" type="text" autofocus="true" class="form-input" placeholder="City Name" />
+                            <button id="search-btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg></button>
+                    </form>
             
-            <ul id="cityList" class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-            
-          </div>   
-         
-          <div class="col-sm-8">
-            <div class="container">
-                <div id="currentCity" class="row border flex-column "> 
-                    <h2 id="currentName">City Name/ Date</h2><div id="weather"></div>
-                    <ul class="list-group "></ul>
-                        <li class=> Temperature:<span id="current-temp"></span></li>
-                        <br>
-                        <li class=> Humidity:<span id="humidity"></span> </li>
-                        <br>
-                        <li class=> Wind Speed:<span id="wind-speed"></span></li>
-                        <br>
-                        <li class=> UV Index:<span id="uv-index"></span></li>
-                        <br>
-                    </ul>
-                
+                    <div id="search-history-container" class="list-group"></div>
                 </div>
-                <div id="five-day-container" class="row">
-                  <h2>5-Day Forecast</h2>
-                  <div class="row" id="each-day-container">
-                      
-                      <div class="col-sm-2 card">Day 1</div>
-                      <div class="col-sm-2 card">Day 2</div>
-                      <div class="col-sm-2 card">Day 3</div>
-                      <div class="col-sm-2 card">Day 4</div>
-                      <div class="col-sm-2 card">Day 5</div>
-                      
+               
 
-                  </div>
-                  
+                <div class="col-8">
+                    <div id="current-weather-container" class="card current-results hide">
+                        <h3 id="city-header"></h3>
+                        <h4 id="current-date"></h4>
+                        <div>
+                            <p>Temperature: <span id="current-temp"></span></p>                          
+                            <p>Humidity: <span id="current-humidity"></span></p>
+                            <p>UV Index: <span id="uv-index"></span></p>
+                            <p>Wind Speed: <span id="wind-speed"></span></p>
+                            
+                        </div>
+                    </div>
+                    <div id="five-day-container" class="five-day-container hide">
+                        <h3>5-Day-Forecast</h3>
+                        <div id="each-day-container" class="row">
+                            <div class="col-2 card  bg-primary">Day 1</div>
+                            <div class="col-2 card  bg-primary">Day 2</div>
+                            <div class="col-2 card  bg-primary">Day 3</div>
+                            <div class="col-2 card  bg-primary">Day 4</div>
+                            <div class="col-2 card  bg-primary">Day 5</div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+            </div>
         </div>
-      </div>
-      <script src="./assets/js/script.js"></script>
+    </main>
+    <script src="./script.js"></script>
 </body>
 </html>
